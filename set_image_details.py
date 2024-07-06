@@ -13,10 +13,10 @@ def set_image_details(pdf, output_path):
     input = Image.open(input_image) 
     no_bg = remove(input)
 
-    # set image size
+    # select image size
     image_size = choicebox(msg='Choose Creature Size', title='Choose Creature Size', choices=choices)
 
-    # set number of creatures, i.e. number of duplicate images
+    # select number of creatures, i.e. number of duplicate images
     text = "Enter the number of copies of this creature to generate"
     title = "Enter the number of copies of this creature to generate"
     d_int = 1
@@ -39,7 +39,7 @@ def set_image_details(pdf, output_path):
     mm_width = output.width * 0.265
     mm_height = output.height * 0.265
 
-    # loop through number of images and add to 
+    # loop through number of images and add to pdf
     for i in range(image_number):
         if int(pdf.get_x()) <= (210-(2*mm_width)):
             pdf.cell(w=mm_width, h=mm_height, link=pdf.image(name=path, x=pdf.get_x(), y=pdf.get_y(), w=mm_width, h=mm_height), border=1, ln=0)

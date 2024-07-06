@@ -8,10 +8,12 @@ def pdf():
     pdf.add_page()
     pdf.set_font('Arial', 'B', 16)
 
+    #set destination for PDF file
     output_path = diropenbox(msg="Select destination folder for PDF", title="Destination") 
     pdf_name = output_path.split("\\")[-1]
     print(output_path)
 
+    #loop to continue adding creatures
     add = True
     while add:
         set_image_details(pdf, output_path)
