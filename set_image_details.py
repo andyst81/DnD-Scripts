@@ -41,7 +41,8 @@ def set_image_details(pdf, output_path):
 
     # loop through number of images and add to pdf
     for i in range(image_number):
+        square = max(mm_height, mm_width)
         if int(pdf.get_x()) <= (210-(2*mm_width)):
-            pdf.cell(w=mm_width, h=mm_height, link=pdf.image(name=path, x=pdf.get_x(), y=pdf.get_y(), w=mm_width, h=mm_height), border=1, ln=0)
+            pdf.cell(w=square, h=square, link=pdf.image(name=path, x=pdf.get_x(), y=pdf.get_y(), w=mm_width, h=mm_height), border=1, ln=0)
         else:
-            pdf.cell(w=mm_width, h=mm_height, link=pdf.image(name=path, x=None, y=pdf.get_y(), w=mm_width, h=mm_height), border=1, ln=1)
+            pdf.cell(w=square, h=square, link=pdf.image(name=path, x=None, y=pdf.get_y(), w=mm_width, h=mm_height), border=1, ln=1)
